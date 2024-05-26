@@ -37,7 +37,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-y4X+22IQP7bL9c8A7d9Z71RPB5N2e9p5P8Z/TrAGTkx+F7cO8wMB0n6/z7cE5Q/zRt6ILBz82kFyOZfF7mrhYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-y4X+22IQP7bL9c8A7d9Z71RPB5N2e9p5P8Z/TrAGTkx+F7cO8wMB0n6/z7cE5Q/zRt6ILBz82kFyOZfF7mrhYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Internal CSS for Font Family -->
     <style>
@@ -47,7 +47,6 @@
         }
     </style>
 </head>
-
 
 <body>
     <div class="mt-4 text-center">
@@ -75,8 +74,8 @@
                                             <img id="picURL" class="avatar" alt="profile" width="50" height="50"><br>
                                         </center>
                                         <div class="mb-3 mt-3">
-                                            <!--<label for="uname" class="form-label">ข้อมูลลงทะเบียน</label>-->
-                                            <!--<input type="text" class="form-control" name="UName" id="uname" readonly>-->
+                                            <label for="uname" class="form-label">ข้อมูลลงทะเบียน</label>
+                                            <input type="text" class="form-control" name="UName" id="uname" readonly>
                                             <input id="uid" class="form-control" name="Uid" style="display:none;">
                                             <img id="upic" name="Upic" width="25%">
                                         </div>
@@ -87,7 +86,7 @@
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="number2">นามสกุล</label>
-                                        <input type="text" class="form-control" placeholder="นามสกุล" id="number2" name="number2" required>
+                                        <input type="text" class="form-control" placeholder="นามสกุล" id="number2" name="number2">
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="tel">เบอร์โทรติดต่อ</label>
@@ -98,26 +97,26 @@
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="number4">อาการ</label>
-                                        <input type="text" class="form-control" placeholder="อาการ" id="number4" name="number4" required >
+                                        <input type="text" class="form-control" placeholder="อาการ" id="number4" name="number4">
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="number5">วันที่ต้องการนัด</label>
+                                        <label for="number5"><i class="fa-solid fa-calendar-days"></i> วันที่ต้องการนัด</label>
                                         <input type="date" class="form-control" placeholder="กรุณาเลือกวันที่" id="number5" name="number5" required>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="number6"><i class="fa-regular fa-clock"></i> เวลา</label>
                                         <select class="form-control" id="number6" name="number6" required>
                                             <option value="" disabled selected>เลือกเวลา</option>
-                                            <option value="9:00">9:00</option>
-                                            <option value="10:00">10:00</option>
-                                            <option value="11:00">11:00</option>
+                                            <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                                            <option value="กระบี่">กระบี่</option>
+                                            <option value="อำนาจเจริญ">อำนาจเจริญ</option>
                                         </select>
                                     </div>
                                     <div class="form-check mb-3">
-                                        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
-                                        <!-- <input type="checkbox" class="form-check-input" name='visto' id='visto' value='' required>-->
-                                        <!-- <label class="form-check-label" for="visto">ข้อมูลถูกต้อง</label>-->
-                                        <!--<div class="invalid-feedback">กรุณาทำเครื่องหมายในช่องสี่เหลี่ยม</div>-->
+                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                                        <input type="checkbox" class="form-check-input" name='visto' id='visto' value='' required>
+                                        <label class="form-check-label" for="visto">ข้อมูลถูกต้อง</label>
+                                        <div class="invalid-feedback">กรุณาทำเครื่องหมายในช่องสี่เหลี่ยม</div>
                                     </div>
                                     <button type="submit" name="submit" id="submit"
                                         class="btn btn-primary bd-indigo-500 btn-block text-white"><i
@@ -133,6 +132,7 @@
 </body>
 
 </html>
+
 
 
 
