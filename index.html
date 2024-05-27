@@ -63,8 +63,8 @@
         <div class="justify-content-center align-items-center">
             <!-- -------- ตัวเลขนับถอยหลัง ------ -->
             <!-- <div id="timer"></div> -->
-            <h1 class="text-center" style="color: darkgreen;">คลินิกนายแพทย์เฉลิมรัตน์</h1>
-            <h2 class="text-center" style="color: darkgreen;">นัดพบแพทย์</h2>
+            <h1 class="text-center" style="color: darkgreen;"> <i class="bi bi-hospital"></i>  ระบบจองคิว <br> คลินิกนายแพทย์เฉลิมรัตน์</h1>
+           
             <!-- -------- ข้อความแจ้งเตือนด้านล่างของตัวนับ ------ -->
             <!--<div class="mt-1 text-center text-light" id="msgStatus"></div>-->
         </div>
@@ -92,30 +92,30 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="number1">ชื่อ</label>
+                                        <label for="number1"> <i class="bi bi-person-lines-fill"></i> ชื่อ</label>
                                         <input type="text" class="form-control" placeholder="ชื่อ" id="number1" name="number1" required>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="number2">นามสกุล</label>
+                                        <label for="number2"> <i class="bi bi-person-lines-fill"></i> นามสกุล</label>
                                         <input type="text" class="form-control" placeholder="นามสกุล" id="number2" name="number2" required>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="tel">เบอร์โทรติดต่อ</label>
+                                        <label for="tel"><i class="bi bi-telephone-fill"></i> เบอร์โทรติดต่อ</label>
                                         <input type="tel" class="form-control" pattern="[0-9]{10}"
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                             placeholder="ระบุเบอร์โทรศัพท์" id="tel" name="tel" maxlength="10"
                                             minlength="10" required>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="number4">อาการ</label>
+                                        <label for="number4"><i class="bi bi-chat-left-dots-fill"></i> อาการ</label>
                                         <input type="text" class="form-control" placeholder="อาการ" id="number4" name="number4"required >
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="number5"><i class="bi bi-calendar3"></i>วันที่ต้องการนัด</label>
+                                        <label for="number5"><i class="bi bi-calendar-plus-fill"></i> วันที่ต้องการนัด</label>
                                         <input type="date" class="form-control" placeholder="กรุณาเลือกวันที่" id="number5" name="number5" required>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="number6"><i class="fa-regular fa-clock"></i> เวลา</label>
+                                        <label for="number6"><i class="bi bi-clock-fill"></i>  เวลา</label>
                                         <select class="form-control" id="number6" name="number6" required>
                                             <option value="" disabled selected>เลือกเวลา</option>
                                         <option value="9.00">9.00</option>
@@ -160,8 +160,7 @@
                                         <div class="invalid-feedback">กรุณาทำเครื่องหมายในช่องสี่เหลี่ยม</div>
                                     </div>
                                     <button type="submit" name="submit" id="submit"
-                                        class="btn btn-primary bd-indigo-500 btn-block text-white"><i
-                                            class="fas fa-paper-plane"></i> กดส่งข้อมูล</button>
+                                        class="btn btn-primary bd-indigo-500 btn-block text-white"><i class="fa-solid fa-paper-plane"></i>  กดส่งข้อมูล</button>
                                 </div>
                             </div>
                         </div>
