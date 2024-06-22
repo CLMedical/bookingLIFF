@@ -10,50 +10,41 @@
     <!-- Google Fonts - Prompt -->
     <link href='https://fonts.googleapis.com/css?family=Prompt' rel='stylesheet' type='text/css'>
 
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-    
-    <!-- Custom CSS -->
-    <link href="style.css" rel="stylesheet" type="text/css" />
 
     <!-- Bootstrap 5.3.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/6a972cf3a7.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400&display=swap" rel="stylesheet">
-    
-    <title>นัดพบแพทย์</title>
-    
-    <!-- jQuery 3.6.0 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400&display=swap" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Materialize Stepper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/materialize-stepper@3.1.0/dist/css/mstepper.min.css">
 
     <!-- LIFF SDK -->
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-
     <!-- SweetAlert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-y4X+22IQP7bL9c8A7d9Z71RPB5N2e9p5P8Z/TrAGTkx+F7cO8wMB0n6/z7cE5Q/zRt6ILBz82kFyOZfF7mrhYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Bootstrap 5.3.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <title>นัดพบแพทย์</title>
+
     <!-- Internal CSS for Font Family -->
     <style>
         body {
             font-family: 'Prompt', sans-serif;
             background-color: #d4edda; /* เพิ่มสีพื้นหลังเขียวอ่อน */
+        }
+
+        .step-content {
+            margin-left: 10px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -61,36 +52,36 @@
 <body oncontextmenu="return false">
     <div class="mt-4 text-center">
         <div class="justify-content-center align-items-center">
-            <!-- -------- ตัวเลขนับถอยหลัง ------ -->
-            <!-- <div id="timer"></div> -->
-            <h1 class="text-center" style="color: darkgreen;"> <i class="bi bi-hospital"></i>  ระบบจองคิว <br> คลินิกนายแพทย์เฉลิมรัตน์</h1>
-           
-            <!-- -------- ข้อความแจ้งเตือนด้านล่างของตัวนับ ------ -->
-            <!--<div class="mt-1 text-center text-light" id="msgStatus"></div>-->
+            <h1 class="text-center" style="color: darkgreen;"> <i class="bi bi-hospital"></i> ระบบจองคิว <br> คลินิกนายแพทย์เฉลิมรัตน์</h1>
         </div>
     </div>
-    <!-- <section id="cover" style="display:none;"> -->
+
     <div id="loginPage" style="display:block;">
         <div id="login-form" class="container-sm fade-in-page mt-4 card-form" style="max-width: 25rem; display:block;">
             <div class="container py-1">
                 <div class="form-group mt-3">
                     <form id="loginForm" class="was-validated" autocomplete="off" name="google-sheet" onsubmit="return validateForm()">
-                        <div class="container">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12 center">
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <center>
-                                            <img id="picURL" class="avatar" alt="profile" width="50" height="50"><br>
-                                        </center>
-                                        <div class="mb-3 mt-3">
-                                            <label for="uname" class="form-label">Line-ID</label>
-                                            <input type="text" class="form-control" name="UName" id="uname" readonly >
-                                            <input id="uid" class="form-control" name="Uid" style="display:none;">
-                                            <img id="upic" name="Upic" width="25% ">
-                                        </div>
+                        <ul class="stepper linear">
+                            <li class="step">
+                                <div class="step-title waves-effect waves-dark">ข้อมูลผู้ใช้</div>
+                                <div class="step-content">
+                                    <center>
+                                        <img id="picURL" class="avatar" alt="profile" width="50" height="50"><br>
+                                    </center>
+                                    <div class="mb-3 mt-3">
+                                        <label for="uname" class="form-label">Line-ID</label>
+                                        <input type="text" class="form-control" name="UName" id="uname" readonly>
+                                        <input id="uid" class="form-control" name="Uid" style="display:none;">
+                                        <img id="upic" name="Upic" width="25%">
                                     </div>
+                                    <div class="step-actions">
+                                        <button class="waves-effect waves-dark btn blue next-step">ถัดไป</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-title waves-effect waves-dark">ข้อมูลการนัดหมาย</div>
+                                <div class="step-content">
                                     <div class="form-group col-md-12">
                                         <label for="number1"> <i class="bi bi-person-lines-fill"></i> ชื่อ</label>
                                         <input type="text" class="form-control" placeholder="ชื่อ" id="number1" name="number1" required>
@@ -108,231 +99,188 @@
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="number4"><i class="bi bi-chat-left-dots-fill"></i> อาการ</label>
-                                        <input type="text" class="form-control" placeholder="อาการ" id="number4" name="number4"required >
+                                        <input type="text" class="form-control" placeholder="อาการ" id="number4" name="number4" required>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="number5"><i class="bi bi-calendar-plus-fill"></i> วันที่ต้องการนัด</label>
                                         <input type="date" class="form-control" placeholder="กรุณาเลือกวันที่" id="number5" name="number5" required>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="number6"><i class="bi bi-clock-fill"></i>  เวลา</label>
+                                        <label for="number6"><i class="bi bi-clock-fill"></i> เวลา</label>
                                         <select class="form-control" id="number6" name="number6" required>
-                                        <option value="" disabled selected>เลือกเวลา</option>
-				        <option value="09:00">09:00</option>
-				        <option value="09:15">09:15</option>
-				        <option value="09:30">09:30</option>
-				        <option value="09:45">09:45</option>
-				        <option value="10:00">10:00</option>
-				        <option value="10:15">10:15</option>
-				        <option value="10:30">10:30</option>
-				        <option value="10:45">10:45</option>
-				        <option value="11:00">11:00</option>
-				        <option value="11:15">11:15</option>
-				        <option value="11:30">11:30</option>
-				        <option value="11:45">11:45</option>
-				        <option value="12:00">12:00</option>
-				        <option value="12:15">12:15</option>
-				        <option value="12:30">12:30</option>
-				        <option value="12:45">12:45</option>
-				        <option value="13:00">13:00</option>
-				        <option value="13:15">13:15 (เฉพาะวันเสาร์)</option>
-				        <option value="13:30">13:30 (เฉพาะวันเสาร์)</option>
-				        <option value="13:45">13:45 (เฉพาะวันเสาร์)</option>
-				        <option value="14:00">14:00 (เฉพาะวันเสาร์)</option>
-				        <option value="14:15">14:15 (เฉพาะวันเสาร์)</option>
-				        <option value="14:30">14:30 (เฉพาะวันเสาร์)</option>
-				        <option value="14:45">14:45 (เฉพาะวันเสาร์)</option>
-				        <option value="15:00">15:00 (เฉพาะวันเสาร์)</option>
-				        <option value="15:15">15:15 (เฉพาะวันเสาร์)</option>
-				        <option value="15:30">15:30 (เฉพาะวันเสาร์)</option>
-				        <option value="15:45">15:45 (เฉพาะวันเสาร์)</option>
-				        <option value="16:00">16:00 (เฉพาะวันเสาร์)</option>
-				        <option value="16:15">16:15 (เฉพาะวันเสาร์)</option>
-				        <option value="16:30">16:30 (เฉพาะวันเสาร์)</option>
-				        <option value="16:45">16:45 (เฉพาะวันเสาร์)</option>
-        
+                                            <option value="" disabled selected>เลือกเวลา</option>
+                                            <option value="09:00">09:00</option>
+                                            <option value="09:15">09:15</option>
+                                            <option value="09:30">09:30</option>
+                                            <option value="09:45">09:45</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="10:15">10:15</option>
+                                            <option value="10:30">10:30</option>
+                                            <option value="10:45">10:45</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="11:15">11:15</option>
+                                            <option value="11:30">11:30</option>
+                                            <option value="11:45">11:45</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="12:15">12:15</option>
+                                            <option value="12:30">12:30</option>
+                                            <option value="12:45">12:45</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="13:15">13:15 (เฉพาะวันเสาร์)</option>
+                                            <option value="13:30">13:30 (เฉพาะวันเสาร์)</option>
+                                            <option value="13:45">13:45 (เฉพาะวันเสาร์)</option>
+                                            <option value="14:00">14:00 (เฉพาะวันเสาร์)</option>
+                                            <option value="14:15">14:15 (เฉพาะวันเสาร์)</option>
+                                            <option value="14:30">14:30 (เฉพาะวันเสาร์)</option>
+                                            <option value="14:45">14:45 (เฉพาะวันเสาร์)</option>
+                                            <option value="15:00">15:00 (เฉพาะวันเสาร์)</option>
+                                            <option value="15:15">15:15 (เฉพาะวันเสาร์)</option>
+                                            <option value="15:30">15:30 (เฉพาะวันเสาร์)</option>
+                                            <option value="15:45">15:45 (เฉพาะวันเสาร์)</option>
+                                            <option value="16:00">16:00 (เฉพาะวันเสาร์)</option>
+                                            <option value="16:15">16:15 (เฉพาะวันเสาร์)</option>
+                                            <option value="16:30">16:30 (เฉพาะวันเสาร์)</option>
+                                            <option value="16:45">16:45 (เฉพาะวันเสาร์)</option>
                                         </select>
                                     </div>
+                                    <div class="step-actions">
+                                        <button class="waves-effect waves-dark btn blue next-step">ถัดไป</button>
+                                        <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="step">
+                                <div class="step-title waves-effect waves-dark">ยืนยันข้อมูล</div>
+                                <div class="step-content">
                                     <div class="form-check mb-3">
-                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                                         <input type="checkbox" class="form-check-input" name='visto' id='visto' value='' required>
                                         <label class="form-check-label" for="visto">ข้อมูลถูกต้อง</label>
                                         <div class="invalid-feedback">กรุณาทำเครื่องหมายในช่องสี่เหลี่ยม</div>
                                     </div>
-                                    <button type="submit" name="submit" id="submit"
-                                        class="btn btn-primary bd-indigo-500 btn-block text-white"> <i class="fa-regular fa-floppy-disk"></i>  กดส่งข้อมูล</button>
+                                    <button type="submit" name="submit" id="submit" class="waves-effect waves-dark btn blue"> <i class="fa-regular fa-floppy-disk"></i> กดส่งข้อมูล</button>
+                                    <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                                 </div>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</body>
 
-</html>
-
-
-
-
-
-
-
-        <script type="text/javascript">
-          
-
-            window.onload = function () {
-                initializeLiff("1654186914-ZP7PokBX");
-            };
-
-            function initializeLiff(myLiffId) {
-                liff
-                    .init({
-                        liffId: myLiffId
-                    })
-                    .then(() => {
-                        getid();
-                    })
-                    .then(() => {
-                        testclick();
-                    })
-                    .catch(err => { });
-            }
-
-            function getid() {
-                liff.getProfile().then(function (profile) {
-                    const uid = profile.userId;
-                    const uname = profile.displayName;
-                    const upic = profile.pictureUrl;
-                    document.getElementById("picURL").src = upic;  // แสดงรูป Profile ที่ดึงมา
-                    document.getElementsByName("Uid")[0].value = uid;
-                    document.getElementsByName("UName")[0].value = uname;
-                    document.getElementsByName("Upic")[0].value = upic;
-                });
-            }
-
-            
-
-       
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwE74WWo7DY8G-igM-Doz_WFqRfWH0hTynQw2J01J9Kf49GvWNLsvV09pAumLeUd9Dg/exec'
-            const form = document.forms['google-sheet']
-
-           form.addEventListener('submit', e => {
-    e.preventDefault();
+    <!-- Materialize and Stepper JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/materialize-stepper@3.1.0/dist/js/mstepper.min.js"></script>
     
-    // แสดง SweetAlert ขณะกำลังส่งข้อมูล
-    Swal.fire({
-        title: 'กำลังส่งข้อมูล...',
-        text: 'กรุณารอสักครู่',
-        allowOutsideClick: false,
-        didOpen: () => {
-            Swal.showLoading();
+    <script type="text/javascript">
+        window.onload = function () {
+            initializeLiff("1654186914-ZP7PokBX");
+        };
+
+        function initializeLiff(myLiffId) {
+            liff
+                .init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    getid();
+                })
+                .then(() => {
+                    testclick();
+                })
+                .catch(err => { });
         }
-    });
 
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-            if (response.ok) {
-                // ปิด SweetAlert ที่กำลังแสดงอยู่
-                Swal.close();
+        function getid() {
+            liff.getProfile().then(function (profile) {
+                const uid = profile.userId;
+                const uname = profile.displayName;
+                const upic = profile.pictureUrl;
+                document.getElementById("picURL").src = upic;  // แสดงรูป Profile ที่ดึงมา
+                document.getElementsByName("Uid")[0].value = uid;
+                document.getElementsByName("UName")[0].value = uname;
+                document.getElementsByName("Upic")[0].value = upic;
+            });
+        }
 
-                // แสดง SweetAlert แจ้งเตือนเมื่อสำเร็จ
-                Swal.fire({
-                    icon: 'success',
-                    title: 'ลงทะเบียนสำเร็จ!',
-                    text: 'กรุณารอเจ้าหน้าที่ยืนยันนัดหมาย',
-                    confirmButtonText: 'ตกลง'
-                }).then(() => {
-                    // รีเซ็ตฟอร์ม
-                    form.reset();
-                });
-            } else {
-                throw new Error('Network response was not ok.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwE74WWo7DY8G-igM-Doz_WFqRfWH0hTynQw2J01J9Kf49GvWNLsvV09pAumLeUd9Dg/exec'
+        const form = document.forms['google-sheet']
 
-            // ปิด SweetAlert ที่กำลังแสดงอยู่
-            Swal.close();
-
-            // แสดง SweetAlert แจ้งเตือนเมื่อเกิดข้อผิดพลาด
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
             Swal.fire({
-                icon: 'error',
-                title: 'เกิดข้อผิดพลาด!',
-                text: 'ไม่สามารถบันทึกข้อมูลได้ กรุณาลองใหม่อีกครั้ง',
-                confirmButtonText: 'ตกลง'
+                title: 'กำลังส่งข้อมูล...',
+                text: 'กรุณารอสักครู่',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    if (response.ok) {
+                        Swal.close();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'ลงทะเบียนสำเร็จ!',
+                            text: 'กรุณารอเจ้าหน้าที่ยืนยันนัดหมาย',
+                            confirmButtonText: 'ตกลง'
+                        }).then(() => {
+                            form.reset();
+                        });
+                    } else {
+                        throw new Error('Network response was not ok.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    Swal.close();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาด!',
+                        text: 'ไม่สามารถบันทึกข้อมูลได้ กรุณาลองใหม่อีกครั้ง',
+                        confirmButtonText: 'ตกลง'
+                    });
+                });
+        });
+
+        $(document).ready(function () {
+            $('#submit').prop('disabled', true);
+            $('#visto').click(function () {
+                if ($(this).is(':checked')) {
+                    $('#submit').prop('disabled', false);
+                } else {
+                    $('#submit').prop('disabled', true);
+                }
             });
         });
-});
 
-        </script>
+        function validateForm() {
+            var telField = document.getElementById("tel");
+            var number1Field = document.getElementById("number1");
+            var number2Field = document.getElementById("number2");
+            var number3Field = document.getElementById("number3");
+            var number4Field = document.getElementById("number4");
+            var number5Field = document.getElementById("number5");
+            var number6Field = document.getElementById("number6");
+            var vistoCheckbox = document.getElementById("visto");
+            var isValid = true;
 
-        <script>
-            $(document).ready(function () {
+            if (telField.value.length !== 10 || isNaN(telField.value)) {
+                isValid = false;
                 $('#submit').prop('disabled', true);
-                $('#visto').click(function () {
-                    if ($(this).is(':checked')) {
-                        $('#submit').prop('disabled', false);
-                    }
-                    else {
-                        $('#submit').prop('disabled', true);
-                    }
-                });
-            });
-        </script>
-        <script>
-            function closeMe() {
-                setTimeout(window.close, 0);
-                liff.closeWindow();
             }
 
+            var submitButton = document.getElementById("submit");
+            submitButton.disabled = !isValid;
+            return isValid;
+            $('#submit').prop('disabled', true);
+        }
+    </script>
 
-
-
-            function validateForm() {
-                  var telField = document.getElementById("tel");
-                  var number1Field = document.getElementById("number1");
-                  var number2Field = document.getElementById("number2");
-                  var number3Field = document.getElementById("number3");
-                  var number4Field = document.getElementById("number4");
-                  var number5Field = document.getElementById("number5");
-                  var number6Field = document.getElementById("number6");
-                  var vistoCheckbox = document.getElementById("visto");
-                  // Add your validation logic here
-                  var isValid = true;
-
-                  if (telField.value.length !== 10 || isNaN(telField.value)) {
-                      isValid = false;
-                    $('#submit').prop('disabled', true);
-                  }
-
-                  // Add more validation checks for other fields...
-
-                  // Enable or disable the submit button based on validation result
-                  var submitButton = document.getElementById("submit");
-                  submitButton.disabled = !isValid;
-                  return isValid;
-                 $('#submit').prop('disabled', true);
-              }
-            }
-
-            $(document).ready(function () {
-                $('#submit').prop('disabled', true);
-
-                $('#visto').click(function () {
-                    if ($(this).is(':checked')) {
-                        $('#submit').prop('disabled', false);
-                    } else {
-                        $('#submit').prop('disabled', true);
-                    }
-                });
-            });
-        </script>
-
-        <script src="script.js" theme="blue" defer></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
