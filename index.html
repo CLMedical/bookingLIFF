@@ -206,14 +206,14 @@
             e.preventDefault();
 
             Swal.fire({
-                title: 'ตรวจสอบข้อมูลก่อนบันทึก',
+                title: 'ข้อมูลการจอง',
                 html: `
                     <p><strong>ชื่อ:</strong> ${document.getElementById('number1').value}</p>
                     <p><strong>นามสกุล:</strong> ${document.getElementById('number2').value}</p>
                     <p><strong>เบอร์โทรติดต่อ:</strong> ${document.getElementById('tel').value}</p>
                     <p><strong>อาการ:</strong> ${document.getElementById('number4').value}</p>
                     <p><strong>วันที่ต้องการนัด:</strong> ${document.getElementById('number5').value}</p>
-                    <p><strong>เวลา:</strong> ${document.getElementById('number6').value} น</p>
+                    <p><strong>เวลา:</strong> ${document.getElementById('number6').value} น.</p>
                 `,
                 showCancelButton: true,
                 confirmButtonText: 'บันทึกข้อมูล',
