@@ -201,50 +201,24 @@
                     confirmButtonText: 'ตกลง'
                 });
             } else {
-                // ตรวจสอบจำนวนคิวที่จองแล้ว
-                fetch(scriptURL, {
-                    method: 'POST',
-                    body: new FormData(form)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'error') {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'จำนวนคิวเต็มแล้ว',
-                            text: data.message,
-                            confirmButtonText: 'ตกลง'
-                        });
-                    } else {
-                        // แสดงการตรวจสอบข้อมูลก่อนบันทึก
-                        Swal.fire({
-                            title: 'ตรวจสอบข้อมูลก่อนบันทึก',
-                            html: `
-                                <p><strong>ชื่อ:</strong> ${document.getElementById('number1').value}</p>
-                                <p><strong>นามสกุล:</strong> ${document.getElementById('number2').value}</p>
-                                <p><strong>เบอร์โทรติดต่อ:</strong> ${document.getElementById('tel').value}</p>
-                                <p><strong>อาการ:</strong> ${document.getElementById('number4').value}</p>
-                                <p><strong>วันที่ต้องการนัด:</strong> ${document.getElementById('number5').value}</p>
-                                <p><strong>เวลา:</strong> ${document.getElementById('number6').value}</p>
-                            `,
-                            showCancelButton: true,
-                            confirmButtonText: 'บันทึกข้อมูล',
-                            cancelButtonText: 'แก้ไขข้อมูล'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                document.getElementById('confirmSubmit').click();
-                            }
-                        });
+                // แสดงการตรวจสอบข้อมูลก่อนบันทึก
+                Swal.fire({
+                    title: 'ตรวจสอบข้อมูลก่อนบันทึก',
+                    html: `
+                        <p><strong>ชื่อ:</strong> ${document.getElementById('number1').value}</p>
+                        <p><strong>นามสกุล:</strong> ${document.getElementById('number2').value}</p>
+                        <p><strong>เบอร์โทรติดต่อ:</strong> ${document.getElementById('tel').value}</p>
+                        <p><strong>อาการ:</strong> ${document.getElementById('number4').value}</p>
+                        <p><strong>วันที่ต้องการนัด:</strong> ${document.getElementById('number5').value}</p>
+                        <p><strong>เวลา:</strong> ${document.getElementById('number6').value}</p>
+                    `,
+                    showCancelButton: true,
+                    confirmButtonText: 'บันทึกข้อมูล',
+                    cancelButtonText: 'แก้ไขข้อมูล'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('confirmSubmit').click();
                     }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'เกิดข้อผิดพลาด!',
-                        text: 'ไม่สามารถตรวจสอบข้อมูลได้ กรุณาลองใหม่อีกครั้ง',
-                        confirmButtonText: 'ตกลง'
-                    });
                 });
             }
         });
