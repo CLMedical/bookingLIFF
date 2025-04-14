@@ -29,6 +29,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400&display=swap" rel="stylesheet">
+    <!-- flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<!-- Optional: Theme (เลือกได้) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+
+<!-- flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     
     <title>นัดพบแพทย์</title>
     
@@ -299,20 +306,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
-   <script>
+    <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const holidayDates = ["2025-04-14", "2025-04-15", "2025-04-16"]; // วันหยุด
+    // รายการวันหยุดที่ต้องการบล็อก
+    const holidays = ["2025-04-14", "2025-04-15", "2025-04-16"];
 
-    const dateInput = document.getElementById("number5");
-    dateInput.addEventListener("change", function () {
-      const selected = this.value;
-      if (holidayDates.includes(selected)) {
-        alert("ขออภัย คลินิกหยุดวันที่ 14-16 เมย.68 กรุณาเลือกวันอื่น");//แก้ตรงนี้ด้วย
-        this.value = ""; // เคลียร์ค่า
-      }
+    flatpickr("#number5", {
+      dateFormat: "Y-m-d", // หรือ "d/m/Y" ก็ได้
+      disable: holidays, // บล็อกวันที่ไม่ให้เลือก
+      locale: "th", // ต้องใช้ locale เสริมถ้าต้องการภาษาไทย (ดูเพิ่มด้านล่าง)
+      minDate: "today"
     });
   });
 </script>
+
     <!-- โค้ดอื่นในเว็บของคุณ -->
 
 <!-- วางโค้ด popup ที่นี่ -->
