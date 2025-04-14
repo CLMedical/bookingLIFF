@@ -172,37 +172,32 @@
     </div>
 
     <script type="text/javascript">
-        window.onload = function() {
-    liff.init({ liffId: "1654186914-ZP7PokBX" }).then(() => {
-        // เมื่อ LIFF เริ่มต้นแล้ว ให้เรียกใช้ getid
-        getid();
-    }).catch((err) => {
-        console.log("ไม่สามารถเริ่ม LIFF ได้:", err);
-    });
-};
+        window.onload = function () {
+            initializeLiff("1654186914-ZP7PokBX");
+        };
 
+        function initializeLiff(myLiffId) {
+            liff
+                .init({
+                    liffId: myLiffId
+                })
+                .then(() => {
+                    getid();
+                })
+                .catch(err => { });
+        }
 
         function getid() {
-    liff.getProfile().then(function (profile) {
-        const uid = profile.userId;
-        const uname = profile.displayName;
-        const upic = profile.pictureUrl;
-        
-        // แสดงรูป Profile ที่ดึงมา
-        document.getElementById("picURL").src = upic;  
-        document.getElementsByName("Uid")[0].value = uid;
-        document.getElementsByName("UName")[0].value = uname;
-        document.getElementsByName("Upic")[0].value = upic;
-
-        // เพิ่มการแสดงข้อความที่แสดงข้อมูลผู้ใช้
-        console.log("User Info:", uid, uname, upic);
-
-        // ปิดหน้าต่าง LIFF หลังจากดึงข้อมูลเสร็จ
-        liff.closeWindow(); // ปิดหน้าต่างหลังจากที่ได้ข้อมูล
-    }).catch(function(error) {
-        console.error("ไม่สามารถดึงข้อมูลผู้ใช้ได้:", error);
-    });
-}
+            liff.getProfile().then(function (profile) {
+                const uid = profile.userId;
+                const uname = profile.displayName;
+                const upic = profile.pictureUrl;
+                document.getElementById("picURL").src = upic;  // แสดงรูป Profile ที่ดึงมา
+                document.getElementsByName("Uid")[0].value = uid;
+                document.getElementsByName("UName")[0].value = uname;
+                document.getElementsByName("Upic")[0].value = upic;
+            });
+        }
 
 
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwE74WWo7DY8G-igM-Doz_WFqRfWH0hTynQw2J01J9Kf49GvWNLsvV09pAumLeUd9Dg/exec'
