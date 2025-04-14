@@ -319,8 +319,8 @@
 <script>
   function isInHolidayPeriod() {
     const today = new Date();
-    const start = new Date('2025-04-14');
-    const end = new Date('2025-04-16');
+    const start = new Date('2025-04-1');
+    const end = new Date('2025-04-6');
     start.setHours(0,0,0,0);
     end.setHours(23,59,59,999);
     return today >= start && today <= end;
