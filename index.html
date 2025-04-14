@@ -172,20 +172,15 @@
     </div>
 
     <script type="text/javascript">
-        window.onload = function () {
-            initializeLiff("1654186914-ZP7PokBX");
-        };
+        window.onload = function() {
+    liff.init({ liffId: "1654186914-ZP7PokBX" }).then(() => {
+        // เมื่อ LIFF เริ่มต้นแล้ว ให้เรียกใช้ getid
+        getid();
+    }).catch((err) => {
+        console.log("ไม่สามารถเริ่ม LIFF ได้:", err);
+    });
+};
 
-        function initializeLiff(myLiffId) {
-            liff
-                .init({
-                    liffId: myLiffId
-                })
-                .then(() => {
-                    getid();
-                })
-                .catch(err => { });
-        }
 
         function getid() {
     liff.getProfile().then(function (profile) {
