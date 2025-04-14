@@ -192,17 +192,23 @@
         const uid = profile.userId;
         const uname = profile.displayName;
         const upic = profile.pictureUrl;
-        document.getElementById("picURL").src = upic;  // แสดงรูป Profile ที่ดึงมา
+        
+        // แสดงรูป Profile ที่ดึงมา
+        document.getElementById("picURL").src = upic;  
         document.getElementsByName("Uid")[0].value = uid;
         document.getElementsByName("UName")[0].value = uname;
         document.getElementsByName("Upic")[0].value = upic;
 
         // เพิ่มการแสดงข้อความที่แสดงข้อมูลผู้ใช้
-        liff.closeWindow(); // ถ้าต้องการปิดหน้าต่างหลังการใช้งาน
+        console.log("User Info:", uid, uname, upic);
+
+        // ปิดหน้าต่าง LIFF หลังจากดึงข้อมูลเสร็จ
+        liff.closeWindow(); // ปิดหน้าต่างหลังจากที่ได้ข้อมูล
     }).catch(function(error) {
         console.error("ไม่สามารถดึงข้อมูลผู้ใช้ได้:", error);
     });
 }
+
 
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwE74WWo7DY8G-igM-Doz_WFqRfWH0hTynQw2J01J9Kf49GvWNLsvV09pAumLeUd9Dg/exec'
         const form = document.forms['google-sheet']
