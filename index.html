@@ -120,44 +120,12 @@
                                         <label for="number5"><i class="bi bi-calendar-plus-fill"></i> วันที่ต้องการนัด</label>
                                         <input type="date" class="form-control" placeholder="กรุณาเลือกวันที่" id="number5" name="number5" required>
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="number6"><i class="bi bi-clock-fill"></i> เวลา</label>
-                                        <select class="form-control" id="number6" name="number6" required>
-                                            <option value="" disabled selected>เลือกเวลา</option>
-                                            <option value="09:00">09:00</option>
-                                            <option value="09:15">09:15</option>
-                                            <option value="09:30">09:30</option>
-                                            <option value="09:45">09:45</option>
-                                            <option value="10:00">10:00</option>
-                                            <option value="10:15">10:15</option>
-                                            <option value="10:30">10:30</option>
-                                            <option value="10:45">10:45</option>
-                                            <option value="11:00">11:00</option>
-                                            <option value="11:15">11:15</option>
-                                            <option value="11:30">11:30</option>
-                                            <option value="11:45">11:45</option>
-                                            <option value="12:00">12:00</option>
-                                            <option value="12:15">12:15</option>
-                                            <option value="12:30">12:30</option>
-                                            <option value="12:45">12:45</option>
-                                            <option value="13:00">13:00</option>
-                                            <option value="13:15">13:15 (เฉพาะวันเสาร์)</option>
-                                            <option value="13:30">13:30 (เฉพาะวันเสาร์)</option>
-                                            <option value="13:45">13:45 (เฉพาะวันเสาร์)</option>
-                                            <option value="14:00">14:00 (เฉพาะวันเสาร์)</option>
-                                            <option value="14:15">14:15 (เฉพาะวันเสาร์)</option>
-                                            <option value="14:30">14:30 (เฉพาะวันเสาร์)</option>
-                                            <option value="14:45">14:45 (เฉพาะวันเสาร์)</option>
-                                            <option value="15:00">15:00 (เฉพาะวันเสาร์)</option>
-                                            <option value="15:15">15:15 (เฉพาะวันเสาร์)</option>
-                                            <option value="15:30">15:30 (เฉพาะวันเสาร์)</option>
-                                            <option value="15:45">15:45 (เฉพาะวันเสาร์)</option>
-                                            <option value="16:00">16:00 (เฉพาะวันเสาร์)</option>
-                                            <option value="16:15">16:15 (เฉพาะวันเสาร์)</option>
-                                            <option value="16:30">16:30 (เฉพาะวันเสาร์)</option>
-                                            <option value="16:45">16:45 (เฉพาะวันเสาร์)</option>
-                                        </select>
-                                    </div>
+                                  <div class="form-group col-md-12">
+  										<label for="number6"><i class="bi bi-clock-fill"></i> เวลา</label>
+  										<select class="form-control" id="number6" name="number6" required>
+    									<option value="" disabled selected>เลือกเวลา</option>
+  										</select>
+										</div>
                                     <div class="form-check mb-3">
                                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                                         <input type="checkbox" class="form-check-input" name='visto' id='visto' value='' required>
@@ -314,12 +282,62 @@
     const holidays = ["2025-04-14", "2025-04-15", "2025-04-16"];
 
     flatpickr("#number5", {
-      dateFormat: "Y-m-d", // หรือ "d/m/Y" ก็ได้
-      disable: holidays, // บล็อกวันที่ไม่ให้เลือก
-      locale: "th", // ต้องใช้ locale เสริมถ้าต้องการภาษาไทย (ดูเพิ่มด้านล่าง)
-      altInput: true, // ให้แสดงผลเป็นแบบอื่น นั่นคือบรรทัดต่อไป
-      altFormat: " j F Y", // ผู้ใช้จะเป็นรูปแบบนี้คือ วันที่ ชื่อเดือน ปีคศ
-      minDate: "today"
+    dateFormat: "Y-m-d", // หรือ "d/m/Y" ก็ได้
+    disable: holidays, // บล็อกวันที่ไม่ให้เลือก
+    locale: {
+        firstDayOfWeek: 0, // ตั้งให้เริ่มจากวันอาทิตย์
+        weekdays: {
+            shorthand: ['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส'],
+            longhand: ['อาทิตย์', 'จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์']
+        },
+        months: {
+            shorthand: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'],
+            longhand: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม']
+        }
+    },
+    altInput: true, // ให้แสดงผลเป็นแบบอื่น
+    altFormat: " j F Y", // ผู้ใช้จะเป็นรูปแบบนี้คือ วันที่ ชื่อเดือน ปีคศ
+    minDate: "today" // ตั้งค่าวันที่เริ่มต้นเป็นวันนี้
+});
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const timeSelect = document.getElementById("number6");
+    const dateInput = document.getElementById("number5"); // ช่องวันที่
+
+    dateInput.addEventListener("change", function () {
+      const selectedDate = new Date(this.value);
+      const day = selectedDate.getDay(); // 6 = เสาร์
+
+      timeSelect.innerHTML = '<option value="" disabled selected>เลือกเวลา</option>';
+
+      const times = [];
+
+      // เพิ่มเวลาช่วงเช้าทุกวัน
+      for (let h = 9; h <= 12; h++) {
+        for (let m = 0; m < 60; m += 15) {
+          if (h === 12 && m > 0) break;
+          times.push(`${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`);
+        }
+      }
+
+      // เพิ่มช่วงบ่ายถ้าเป็นวันเสาร์ (day === 6)
+      if (day === 6) {
+        for (let h = 13; h <= 16; h++) {
+          for (let m = 0; m < 60; m += 15) {
+            times.push(`${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')} (เฉพาะวันเสาร์)`);
+          }
+        }
+      }
+
+      // เติม options ลง select
+      times.forEach(time => {
+        const opt = document.createElement("option");
+        opt.value = time.split(" ")[0]; // เอาเฉพาะเวลาไปเก็บ
+        opt.textContent = time;
+        timeSelect.appendChild(opt);
+      });
     });
   });
 </script>
