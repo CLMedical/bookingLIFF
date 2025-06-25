@@ -88,13 +88,13 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <center>
-                                            <img id="picURL" class="avatar" alt="profile" width="50" height="50" style="border-radius: 50%; object-fit: cover;">
+                                            <img id="picURL" class="avatar" alt="profile" width="50" height="50"><br>
                                         </center>
                                         <div class="mb-3 mt-3">
                                             <label for="uname" class="form-label">Line-ID</label>
                                             <input type="text" class="form-control" name="UName" id="uname" readonly>
                                             <input id="uid" class="form-control" name="Uid" style="display:none;">
-                                            <img id="upic" name="Upic" width="25%" style="border-radius: 50%; object-fit: cover;">
+                                            <img id="upic" name="Upic" width="25%">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-12">
@@ -178,27 +178,58 @@
         const form = document.forms['google-sheet']
 
         document.getElementById('submit').addEventListener('click', function (e) {
-            e.preventDefault();
+    e.preventDefault();
 
-            Swal.fire({
-                title: 'ข้อมูลการจอง',
-                html: `
-                    <p><strong>ชื่อ:</strong> ${document.getElementById('number1').value}</p>
-                    <p><strong>นามสกุล:</strong> ${document.getElementById('number2').value}</p>
-                    <p><strong>เบอร์โทรติดต่อ:</strong> ${document.getElementById('tel').value}</p>
-                    <p><strong>อาการ:</strong> ${document.getElementById('number4').value}</p>
-                    <p><strong>วันที่ต้องการนัด:</strong> ${document.getElementById('number5').value}</p>
-                    <p><strong>เวลา:</strong> ${document.getElementById('number6').value} น.</p>
-                `,
-                showCancelButton: true,
-                confirmButtonText: 'บันทึกข้อมูล',
-                cancelButtonText: 'แก้ไขข้อมูล'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('confirmSubmit').click();
-                }
-            });
+    // ดึงค่าทั้งหมดจาก input
+    const name = document.getElementById('number1').value.trim();
+    const surname = document.getElementById('number2').value.trim();
+    const tel = document.getElementById('tel').value.trim();
+    const symptom = document.getElementById('number4').value.trim();
+    const date = document.getElementById('number5').value.trim();
+    const time = document.getElementById('number6').value.trim();
+    const confirmCheck = document.getElementById('visto').checked;
+
+    // ตรวจสอบความครบถ้วน
+    if (!name || !surname || !tel || !symptom || !date || !time || !confirmCheck) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+            text: 'โปรดตรวจสอบว่าทุกช่องรวมถึงการติ๊กยืนยันได้กรอกครบแล้ว',
         });
+        return;
+    }
+
+    // ตรวจสอบเบอร์โทรว่ามี 10 หลัก
+    if (tel.length !== 10 || isNaN(tel)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'เบอร์โทรไม่ถูกต้อง',
+            text: 'กรุณาระบุเบอร์โทร 10 หลักที่ถูกต้อง',
+        });
+        return;
+    }
+
+    // ถ้าครบทุกช่อง -> แสดง popup preview
+    Swal.fire({
+        title: 'ข้อมูลการจอง',
+        html: `
+            <p><strong>ชื่อ:</strong> ${name}</p>
+            <p><strong>นามสกุล:</strong> ${surname}</p>
+            <p><strong>เบอร์โทรติดต่อ:</strong> ${tel}</p>
+            <p><strong>อาการ:</strong> ${symptom}</p>
+            <p><strong>วันที่ต้องการนัด:</strong> ${date}</p>
+            <p><strong>เวลา:</strong> ${time} น.</p>
+        `,
+        showCancelButton: true,
+        confirmButtonText: 'บันทึกข้อมูล',
+        cancelButtonText: 'แก้ไขข้อมูล'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('confirmSubmit').click();
+        }
+    });
+});
+
 
         document.getElementById('confirmSubmit').addEventListener('click', function (e) {
             e.preventDefault();
